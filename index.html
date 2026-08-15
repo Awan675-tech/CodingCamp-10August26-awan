@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="To-Do List Life Dashboard" />
+    <title>Life Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css?v=20260814" />
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">LIFE DASHBOARD</p>
+          <h1 id="greeting">Selamat pagi!</h1>
+          <p class="date" id="current-date"></p>
+        </div>
+        <div class="topbar-actions">
+          <button class="name-button" id="name-button" type="button">Atur nama</button>
+          <button class="icon-button" id="theme-toggle" type="button" aria-label="Ubah tema">☾</button>
+        </div>
+      </header>
+
+      <section class="hero-card" aria-label="Waktu saat ini">
+        <div>
+          <p>WAKTU SAAT INI</p>
+          <time id="current-time">00:00</time>
+        </div>
+        <span class="hero-orb" aria-hidden="true"></span>
+        <p class="hero-message">Satu tugas kecil hari ini adalah kemajuan besar untuk dirimu.</p>
+      </section>
+
+      <section class="grid">
+        <article class="card timer-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">FOCUS TIMER</p>
+              <h2>Waktunya fokus</h2>
+            </div>
+            <span class="badge">25 MENIT</span>
+          </div>
+          <div class="timer" id="timer-display">25:00</div>
+          <div class="timer-actions">
+            <button class="button primary" id="start-timer" type="button">Mulai</button>
+            <button class="button secondary" id="stop-timer" type="button">Berhenti</button>
+            <button class="button text-button" id="reset-timer" type="button">Reset</button>
+          </div>
+        </article>
+
+        <article class="card quick-link-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">QUICK LINKS</p>
+              <h2>Tujuan favorit</h2>
+            </div>
+          </div>
+          <div class="quick-links" id="quick-links"></div>
+          <form class="link-form" id="link-form">
+            <input id="link-name" type="text" maxlength="24" placeholder="Nama situs" required />
+            <input id="link-url" type="url" placeholder="https://example.com" required />
+            <button class="button primary" type="submit">Tambah</button>
+          </form>
+        </article>
+      </section>
+
+      <section class="card todo-card">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">TO-DO LIST</p>
+            <h2>Rencana hari ini</h2>
+          </div>
+          <span class="task-count" id="task-count">0 tugas</span>
+        </div>
+        <form class="task-form" id="task-form">
+          <input id="task-input" type="text" maxlength="100" placeholder="Tulis tugas baru…" required />
+          <button class="button primary" type="submit">+ Tambah tugas</button>
+        </form>
+        <p class="form-note">Tugas yang sama tidak dapat ditambahkan dua kali.</p>
+        <ul class="task-list" id="task-list" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <dialog id="name-dialog">
+      <form method="dialog" class="dialog-content" id="name-form">
+        <button class="dialog-close" type="button" id="close-name-dialog" aria-label="Tutup">×</button>
+        <p class="eyebrow">PERSONALISASI</p>
+        <h2>Siapa namamu?</h2>
+        <p>Nama ini akan muncul pada ucapan selamat datang.</p>
+        <input id="name-input" type="text" maxlength="30" placeholder="Contoh: Awan" required />
+        <button class="button primary" value="default" type="submit">Simpan nama</button>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="/js/app.js?v=20260814"></script>
+  </body>
+</html>
